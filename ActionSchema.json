@@ -1,0 +1,130 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "InsightsAssistant API",
+    "description": "API for creating data insights fro IoT data",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/roomDetails": {
+      "post": {
+        "description": "Get room devices by name",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name of the room to search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with company data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/roomData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+"/roomMetrics": {
+      "post": {
+        "description": "Get room latest readings",
+        "parameters": [
+          {
+            "name": "assetId",
+            "in": "query",
+            "description": "Name of asset to search",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with metrics data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/roomMetrics"
+                }
+              }
+            }
+          }
+        }
+      }
+    }    	
+  },
+  "components": {
+    "schemas": {
+      "roomData": {
+        "type": "object",
+        "description": "Iot devices in a single room",
+        "properties": {
+          "OfficeName": {
+            "type": "string",
+            "description": "room name"
+          },
+          "FanCoilUnit": {
+            "type": "string",
+            "description": "FanCoilUnit id"
+          },
+          "IoTDevice": {
+            "type": "string",
+            "description": "IoTDeviceId"
+          }
+        }
+      },
+    "roomMetrics": {
+        "type": "object",
+        "description": "Iot devices readings from a single room",
+        "properties": {
+          "space_name": {
+            "type": "string",
+            "description": "room name"
+          },
+          "pressure": {
+            "type": "string",
+            "description": "pressure"
+          },
+          "bvoc": {
+            "type": "string",
+            "description": "volatility organic compound"
+          },
+      "iaq": {
+            "type": "string",
+            "description": "iaq"
+          },
+          "carbon_dioxide": {
+            "type": "string",
+            "description": "carbon_dioxide"
+          },
+          "humidity": {
+            "type": "string",
+            "description": "humidity"
+          },
+      "read_time": {
+            "type": "string",
+            "description": "read_time"
+          },
+          "temperature": {
+            "type": "string",
+            "description": "temperature"
+          },
+          "asset_id": {
+            "type": "string",
+            "description": "asset_id"
+          }
+        }
+      }
+    }
+  }
+}
