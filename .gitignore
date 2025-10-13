@@ -1,0 +1,14 @@
+*.js
+!jest.config.js
+*.d.ts
+node_modules
+
+#Virtual envirionments
+.venv
+venv
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+__pycache__

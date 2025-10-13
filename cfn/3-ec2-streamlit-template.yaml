@@ -58,9 +58,8 @@ Parameters:
   InstanceType:
     Description: EC2 instance type
     Type: String
-    Default: t3.small
+    Default: t3.medium
     AllowedValues:
-      - t3.small
       - t3.medium
       - t3.large
 
@@ -197,7 +196,7 @@ Resources:
           apt-get update -y
           apt-get upgrade -y
           apt-get install -y python3-pip git ec2-instance-connect
-          git clone https://github.com/jboshodi/skanska-bms-streamlit-client.git /home/ubuntu/app
+          git clone https://github.com/jboshodi/intellekt-bms-genai-assistant.git /home/ubuntu/app
           pip3 install -r /home/ubuntu/app/streamlit_app/requirements.txt
           cd /home/ubuntu/app/streamlit_app
 
